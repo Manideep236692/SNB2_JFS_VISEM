@@ -1,0 +1,22 @@
+Initial process:
+
+git init
+git add .
+git commit -m "your commit message"
+git remote add origin <remote-url> and <remote-url>-https://github.com/Manideep236692/SNB2_JFS_VISEM.git
+git push origin main
+git branch
+
+
+---------------------------------------------------------------
+For modification or changes in the files:
+
+git status
+git add .
+git commit -m "modified program"
+git push origin main
+
+-----------------------------------------------------------------
+if want you retrieve the remote repo to local repo
+
+git clone <remote-url>
