@@ -58,6 +58,8 @@ select{
     width: 520px;
     height: 320px;
     border-radius: 8px;
+    /* allow shadows to be visible outside the box when glowing */
+    overflow: visible;
     /* remove the circular background framing color so image fills box */
 }
 
@@ -69,6 +71,40 @@ select{
     object-fit: contain;
     display: block;
     background-color: #000; /* letterbox background to match screenshot */
+}
+
+/* keep a smooth transition and subtle hover zoom for the image */
+.photo-circle img{
+    transition: transform 300ms ease, opacity 250ms ease;
+}
+
+/* subtle hover zoom when in rectangle mode */
+.photo-circle.to-rect img:hover{
+    transform: scale(1.03);
+}
+
+/* Continuous shining/glow effect for the image when in rectangle mode */
+@keyframes shine {
+    0% {
+        box-shadow: 0 12px 26px rgba(0,0,0,0.30), 0 0 12px rgba(255,215,0,0.20), 0 0 30px rgba(255,215,0,0.06);
+    }
+    40% {
+        box-shadow: 0 20px 42px rgba(0,0,0,0.36), 0 0 28px rgba(255,215,0,0.45), 0 0 60px rgba(255,215,0,0.22);
+    }
+    70% {
+        box-shadow: 0 14px 30px rgba(0,0,0,0.32), 0 0 16px rgba(255,215,0,0.32), 0 0 36px rgba(255,215,0,0.14);
+    }
+    100% {
+        box-shadow: 0 12px 26px rgba(0,0,0,0.30), 0 0 12px rgba(255,215,0,0.20), 0 0 30px rgba(255,215,0,0.06);
+    }
+}
+
+/* apply the shining animation when the container is in rectangle mode */
+.photo-circle.to-rect img{
+    /* starting subtle shadow so the animation has a base */
+    box-shadow: 0 12px 26px rgba(0,0,0,0.30), 0 0 12px rgba(255,215,0,0.20), 0 0 30px rgba(255,215,0,0.06);
+    /* stronger, more visible glow */
+    animation: shine 2.4s ease-in-out infinite;
 }
 
 /* Description box */

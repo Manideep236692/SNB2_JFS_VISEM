@@ -76,6 +76,7 @@ selectEl.addEventListener("change", function () {
         imgEl.style.display = '';
         imgEl.src = inv.photo;
         imgEl.alt = inv.text || key;
+    // no visual effects; just ensure the image shows
     } else {
         // fallback: update img src
         imgEl.src = inv.photo;
